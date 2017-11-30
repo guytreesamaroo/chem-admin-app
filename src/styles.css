@@ -1,1 +1,46 @@
 /* You can add global styles to this file, and also import other style files */
+
+/* SET ANGULAR MATERIALIZE THEME */
+@import "~@angular/material/prebuilt-themes/deeppurple-amber.css";
+
+/* PREPARE WINDOW FOR FITTED ELEMENTS */
+
+html, body {
+      margin: 0 0;
+      padding: 0 0;
+}
+
+/* TOOLBAR */
+#logo {
+      width: 25px;
+      height: 25px;
+
+      float: left;
+
+      margin: 0 20px;
+}
+
+#logout {
+      width: 17px;
+      height: 17px;
+}
+
+.toolbar {
+      height: 20px;
+}
+
+.toolbar_row {
+      height: 20px;
+
+      color: white;
+      background-color: black;
+}
+
+/* NAVIGATION TABS */
+.mat-tab-label {
+      color: black;
+}
+
+.mat-tab-header {
+      background-color: lightblue;
+}

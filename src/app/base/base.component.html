@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Base</title>
+</head>
+<body>
+  <mat-toolbar class='toolbar'>
+    <mat-toolbar-row class='toolbar_row'>
+      <span>
+        <img id='logo' src='/assets/img/chem.png'> UWI Chemistry Administration
+      </span>
+
+      <span>
+        <button mat-icon-button [matMenuTriggerFor]="more" class='right_justified'>
+          <img id='more' src='/assets/img/more.png'>
+        </button>
+
+        <mat-menu #more="matMenu">
+          <button mat-menu-item>
+            <img id='logout' src='/assets/img/logout.png'>
+            <span>Logout</span>
+          </button>
+        </mat-menu>
+      </span>
+
+    </mat-toolbar-row>
+  </mat-toolbar>
+
+  <mat-tab-group class='tabs_services'>
+    <mat-tab label='Students'>
+      <mat-card>
+        <span>Approve Students Form</span>
+      </mat-card>
+    </mat-tab>
+
+    <mat-tab label='Courses'>
+      <mat-card>
+        <app-course-form></app-course-form>
+      </mat-card>
+    </mat-tab>
+
+    <mat-tab label='Set Department Details'>
+      <mat-card>
+        <span>Set Department Form</span>
+      </mat-card>
+    </mat-tab>
+
+    <mat-tab label='Files'>
+      <mat-card>
+        <span>Upload File Form</span>
+      </mat-card>
+    </mat-tab>
+
+    <mat-tab label='Events'> <!--Type; course: general, c1, c1; message, Date -->
+      <mat-card>
+        <span>Events Form</span>
+      </mat-card>
+    </mat-tab>
+  </mat-tab-group>
+
+  <!--<mat-checkbox #cb_start
+    [value] = "Start"
+    [checked] = "isChecked">
+    Subscribe to newsletter
+  </mat-checkbox>
+
+  <div *ngIf="cb_start.checked == true">Some details...</div>-->
+</body>
+</html>

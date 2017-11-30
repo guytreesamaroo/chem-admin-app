@@ -1,0 +1,145 @@
+
+
+<div [hidden]="submitted">
+  <h1>Create Course Form</h1>
+  <form (ngSubmit)="onSubmit()" #courseForm="ngForm">
+      {{diagnostic}}
+
+    <div class="form-group">
+      <label for="name">Name</label>
+      <input type="text" class="form-control" id="name"
+              required
+              [(ngModel)]="model.name" name="name"
+              #name= "ngModel">
+    </div>
+
+    <div [hidden]="name.valid || name.pristine"
+            class="alert alert-danger">
+        Name is required
+    </div>
+
+    <div class="form-group">
+      <label for="code">code</label>
+      <input type="text" class="form-control" id="code"
+              required
+              [(ngModel)]="model.code" name="code"
+              #code= "ngModel">
+    </div>
+
+    <div [hidden]="code.valid || code.pristine"
+            class="alert alert-danger">
+        Code is required
+    </div>
+
+    <div class="form-group">
+      <label for="year">year</label>
+      <select class="form-control" id="year"
+              required
+              [(ngModel)]="model.year" name="year">
+              <option *ngFor="let yr of years" [value]="yr">{{yr}}</option>
+       </select>
+    </div>
+
+    <div class="form-group">
+      <label for="credits">credits</label>
+      <select class="form-control" id="credits"
+              required
+              [(ngModel)]="model.credits" name="credits">
+          <option *ngFor="let crd of credits" [value]="crd">{{crd}}</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="semester">semester</label>
+      <select class="form-control" id="semester"
+              required
+              [(ngModel)]="model.semester" name="semester">
+        <option *ngFor="let sem of semesters" [value]="sem">{{sem}}</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="faculty">faculty</label>
+      <select class="form-control" id="faculty"
+              required
+              [(ngModel)]="model.faculty" name="faculty">
+        <option *ngFor="let fac of faculties" [value]="fac">{{fac}}</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="lecturer">lecturer</label>
+      <input type="text" class="form-control" id="lecturer"
+              required
+              [(ngModel)]="model.lecturer" name="lecturer"
+              #lecturer= "ngModel">
+    </div>
+    <div [hidden]="lecturer.valid || lecturer.pristine"
+            class="alert alert-danger">
+        Lecturer is required
+    </div>
+
+    <div class="form-group">
+      <label for="officeHours">officeHours</label>
+      <input type="text" class="form-control" id="alterEgo"
+              required
+              [(ngModel)]="model.officeHours" name="officeHours">
+    </div>
+
+    <div class="form-group">
+      <label for="officeLocation">officeLocation</label>
+      <input type="text" class="form-control" id="officeLocation"
+              required
+              [(ngModel)]="model.officeLocation" name="officeLocation">
+    </div>
+
+    <div class="form-group">
+      <label for="prerequiste">prerequiste</label>
+      <input type="text" class="form-control" id="prerequiste"
+              required
+              [(ngModel)]="model.prerequiste" name="prerequiste">
+    </div>
+
+    <div class="form-group">
+      <label for="department">department</label>
+      <select class="form-control" id="department"
+              required
+              [(ngModel)]="model.department" name="department">
+        <option *ngFor="let dep of departments" [value]="dep">{{dep}}</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="summary">summary</label>
+      <input type="text" class="form-control" id="summary"
+              required
+              [(ngModel)]="model.summary" name="summary">
+    </div>
+
+    <button type="submit" class="btn btn-success"
+    [disabled]="!courseForm.form.valid">Submit</button>
+    <button type="button" class="btn btn-default" (click)="courseForm.reset()">New Course</button>
+  </form>
+</div>
+
+<div [hidden]="!submitted">
+  <h2>You submitted the following:</h2>
+
+  <div class="row">
+    <div class="col-xs-3">Name</div>
+    <div class="col-xs-9  pull-left">{{ model.name }}</div>
+  </div>
+
+  <div class="row">
+    <div class="col-xs-3">Alter Ego</div>
+    <div class="col-xs-9 pull-left">{{ model.year }}</div>
+  </div>
+
+  <div class="row">
+    <div class="col-xs-3">Power</div>
+    <div class="col-xs-9 pull-left">{{ model.semester }}</div>
+  </div>
+
+  <br>
+  <button class="btn btn-primary" (click)="submitted=false">Edit</button>
+</div>
