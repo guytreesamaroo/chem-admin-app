@@ -19,7 +19,9 @@
   - getLecturers() * * *
   - getCourses() * * *
 -->
-<form #courseForm='ngForm' class='form_style'>
+
+<!-- ngForm ensures that the {{diagnostic}} tag registers all references variables -->
+<form #courseForm='ngForm' class='form_style' (submit)='courseSubmit()'>
   <mat-form-field>
     <input matInput #field_name placeholder="Course Name" [(ngModel)]='course.name' name='name' required>
   </mat-form-field>
@@ -71,7 +73,7 @@
 
   <br><br>
 
-  <button mat-button (click)='submitCourse()'>Submit</button>
+  <button mat-button type='submit'>Submit</button>
 </form>
 
 {{diagnostic}}

@@ -9,11 +9,9 @@ import { CourseComponent } from '../course/course.component';
 
 export class CourseFormComponent {
   course = new CourseComponent('', '', 1, 3, [1], '', '', '', '', '', '', '');
-
   credits = [1, 2, 3, 4, 5, 6];
   years = [1, 2, 3];
   semesters = [1, 2, 3];
-
   departments = ['Chemistry'];
   faculties = ['Faculty of Science and Technology', 'Faculty of Food and Agriculture'];
 
