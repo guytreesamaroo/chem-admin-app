@@ -44,3 +44,25 @@ html, body {
 .mat-tab-header {
       background-color: lightblue;
 }
+
+.mat-tab.mat-active {
+      background-color: lightgray;
+}
+
+/* ALL FORM CLASSES */
+
+.form_card {
+      width: 50%;
+      height: 83%;
+
+      margin: 3% 23%;
+}
+
+.form_style {
+      display: flex;
+      flex-direction: column;
+}
+
+.form_style > * {
+      width: 100%;
+}

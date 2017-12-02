@@ -1,145 +1,77 @@
+<!--
+  Fields:
+  - name, code, year, credits, semester, officeHours, officeLocation
 
+  Questions:
+  - Wouldn't office hours and location be specific to a lecturer?
+  - Shouldn't code have typesafety for a primary key, where you can choose courscode only to add to chem, e.g. chem-1000
+  - Shouldn't we remove department since this is for the chemistry department?
+  - In the scope of this system, do we even need to store the prequisite for some course? How will it be used?
+  - [Course summary is changed to description]
+  - Why attach a year attribute to a course?
+  - In terms of their relationship, should a course and a semester be linked since a course can be repeated for any one sem?
+      ^ to solve this, a recommendation could be to allow the admin to select multiple semesters where it can be offered.
+  - I see a possiblity for the faculty attribute, but can you give the rationale for having it?
+  - Do we need a key for our course? won't firebase give it one?
 
-<div [hidden]="submitted">
-  <h1>Create Course Form</h1>
-  <form (ngSubmit)="onSubmit()" #courseForm="ngForm">
-      {{diagnostic}}
-
-    <div class="form-group">
-      <label for="name">Name</label>
-      <input type="text" class="form-control" id="name"
-              required
-              [(ngModel)]="model.name" name="name"
-              #name= "ngModel">
-    </div>
-
-    <div [hidden]="name.valid || name.pristine"
-            class="alert alert-danger">
-        Name is required
-    </div>
-
-    <div class="form-group">
-      <label for="code">code</label>
-      <input type="text" class="form-control" id="code"
-              required
-              [(ngModel)]="model.code" name="code"
-              #code= "ngModel">
-    </div>
-
-    <div [hidden]="code.valid || code.pristine"
-            class="alert alert-danger">
-        Code is required
-    </div>
-
-    <div class="form-group">
-      <label for="year">year</label>
-      <select class="form-control" id="year"
-              required
-              [(ngModel)]="model.year" name="year">
-              <option *ngFor="let yr of years" [value]="yr">{{yr}}</option>
-       </select>
-    </div>
-
-    <div class="form-group">
-      <label for="credits">credits</label>
-      <select class="form-control" id="credits"
-              required
-              [(ngModel)]="model.credits" name="credits">
-          <option *ngFor="let crd of credits" [value]="crd">{{crd}}</option>
-      </select>
-    </div>
-
-    <div class="form-group">
-      <label for="semester">semester</label>
-      <select class="form-control" id="semester"
-              required
-              [(ngModel)]="model.semester" name="semester">
-        <option *ngFor="let sem of semesters" [value]="sem">{{sem}}</option>
-      </select>
-    </div>
-
-    <div class="form-group">
-      <label for="faculty">faculty</label>
-      <select class="form-control" id="faculty"
-              required
-              [(ngModel)]="model.faculty" name="faculty">
-        <option *ngFor="let fac of faculties" [value]="fac">{{fac}}</option>
-      </select>
-    </div>
-
-    <div class="form-group">
-      <label for="lecturer">lecturer</label>
-      <input type="text" class="form-control" id="lecturer"
-              required
-              [(ngModel)]="model.lecturer" name="lecturer"
-              #lecturer= "ngModel">
-    </div>
-    <div [hidden]="lecturer.valid || lecturer.pristine"
-            class="alert alert-danger">
-        Lecturer is required
-    </div>
-
-    <div class="form-group">
-      <label for="officeHours">officeHours</label>
-      <input type="text" class="form-control" id="alterEgo"
-              required
-              [(ngModel)]="model.officeHours" name="officeHours">
-    </div>
-
-    <div class="form-group">
-      <label for="officeLocation">officeLocation</label>
-      <input type="text" class="form-control" id="officeLocation"
-              required
-              [(ngModel)]="model.officeLocation" name="officeLocation">
-    </div>
-
-    <div class="form-group">
-      <label for="prerequiste">prerequiste</label>
-      <input type="text" class="form-control" id="prerequiste"
-              required
-              [(ngModel)]="model.prerequiste" name="prerequiste">
-    </div>
-
-    <div class="form-group">
-      <label for="department">department</label>
-      <select class="form-control" id="department"
-              required
-              [(ngModel)]="model.department" name="department">
-        <option *ngFor="let dep of departments" [value]="dep">{{dep}}</option>
-      </select>
-    </div>
-
-    <div class="form-group">
-      <label for="summary">summary</label>
-      <input type="text" class="form-control" id="summary"
-              required
-              [(ngModel)]="model.summary" name="summary">
-    </div>
-
-    <button type="submit" class="btn btn-success"
-    [disabled]="!courseForm.form.valid">Submit</button>
-    <button type="button" class="btn btn-default" (click)="courseForm.reset()">New Course</button>
-  </form>
-</div>
-
-<div [hidden]="!submitted">
-  <h2>You submitted the following:</h2>
-
-  <div class="row">
-    <div class="col-xs-3">Name</div>
-    <div class="col-xs-9  pull-left">{{ model.name }}</div>
-  </div>
-
-  <div class="row">
-    <div class="col-xs-3">Alter Ego</div>
-    <div class="col-xs-9 pull-left">{{ model.year }}</div>
-  </div>
-
-  <div class="row">
-    <div class="col-xs-3">Power</div>
-    <div class="col-xs-9 pull-left">{{ model.semester }}</div>
-  </div>
+  Services required:
+  - getFaculties() used to get list of faculties for faculty choice in form.
+  - getLecturers() * * *
+  - getCourses() * * *
+-->
+<form #courseForm='ngForm' class='form_style'>
+  <mat-form-field>
+    <input matInput #field_name placeholder="Course Name" [(ngModel)]='course.name' name='name' required>
+  </mat-form-field>
 
   <br>
-  <button class="btn btn-primary" (click)="submitted=false">Edit</button>
-</div>
+
+  <mat-form-field>
+    <span matPrefix>CHEM &nbsp;</span>
+    <input matInput #field_code placeholder="Course Code" [(ngModel)]='course.code' name='code' required>
+  </mat-form-field>
+
+  <br>
+
+  <mat-form-field>
+    <mat-select placeholder="Year" [(ngModel)]='course.year' name='year'>
+      <mat-option ng-value='year' *ngFor='let year of years' [value]="year"> {{ year }} </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <br>
+
+  <mat-form-field>
+    <mat-select placeholder="Credits" [(ngModel)]='course.credits' name='credits' required>
+      <mat-option *ngFor='let credit of credits' [value]="credit"> {{ credit }} </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <br>
+
+  <mat-form-field>
+    <mat-select placeholder="Semesters" [(ngModel)]='course.semester' name='semester' multiple>
+      <mat-option *ngFor='let semester of semesters' [value]="semester">{{ semester }}</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <br>
+
+  <mat-form-field>
+    <mat-select placeholder="Faculty"  [(ngModel)]='course.faculty' name='faculty' required>
+      <mat-option *ngFor='let faculty of faculties' [value]="faculty"> {{ faculty }} </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <br>
+
+  <mat-form-field>
+    <textarea matInput #field_description placeholder='Enter a summary of the course' [(ngModel)]='course.description' name='description'></textarea>
+  </mat-form-field>
+
+  <br><br>
+
+  <button mat-button (click)='submitCourse()'>Submit</button>
+</form>
+
+{{diagnostic}}

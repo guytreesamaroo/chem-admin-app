@@ -23,6 +23,9 @@ import {
   MatDatepickerModule,
   MatMenuModule,
   MatToolbarModule,
+  MatInputModule,
+  MatSelectModule,
+  MatAutocompleteModule
 } from '@angular/material';
 
 import { CourseFormComponent } from './course-form/course-form.component';
@@ -55,7 +58,10 @@ import { CourseComponent } from './course/course.component';
     MatListModule,
     MatDatepickerModule,
     MatMenuModule,
-    MatToolbarModule
+    MatToolbarModule,
+    MatInputModule,
+    MatSelectModule,
+    MatAutocompleteModule
   ],
   providers: [],
   bootstrap: [AppComponent]
