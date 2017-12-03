@@ -7,61 +7,73 @@
   <title>Base</title>
 </head>
 <body>
-  <mat-toolbar class='toolbar'>
-    <mat-toolbar-row class='toolbar_row'>
-      <span>
-        <img id='logo' src='/assets/img/chem.png'> UWI Chemistry Administration
-      </span>
+  <div *ngIf='!(authService.user | async)' id='form_login'>
+    <app-login-form></app-login-form>
+  </div>
 
-      <span>
-        <button mat-icon-button [matMenuTriggerFor]="more" class='right_justified'>
-          <img id='more' src='/assets/img/more.png'>
-        </button>
+  <div *ngIf='authService.user | async'>
+    <mat-toolbar class='toolbar'>
+      <mat-toolbar-row class='toolbar_row'>
+        <span>
+          <img id='logo' src='/assets/img/chem.png'> UWI Chemistry Administration
+        </span>
 
-        <mat-menu #more="matMenu">
-          <button mat-menu-item>
-            <img id='logout' src='/assets/img/logout.png'>
-            <span>Logout</span>
+        <span>
+          <button mat-icon-button [matMenuTriggerFor]="more" class='right_justified'>
+            <img id='more' src='/assets/img/more.png'>
           </button>
-        </mat-menu>
-      </span>
 
-    </mat-toolbar-row>
-  </mat-toolbar>
+          <mat-menu #more="matMenu">
+            <button mat-menu-item>
+              <img id='logout' src='/assets/img/logout.png'>
+              <button mat-button (click)='logout()'>Logout</button>
+            </button>
+          </mat-menu>
+        </span>
 
-  <mat-tab-group class='tabs_services'>
-    <mat-tab label='Students'>
-      <mat-card class='form_card'>
-        <form class='form_style'>
-          Approve Students Form
-        </form>
-      </mat-card>
-    </mat-tab>
+      </mat-toolbar-row>
+    </mat-toolbar>
 
-    <mat-tab label='Courses'>
-      <mat-card class='form_card'>
-        <app-course-form></app-course-form>
-      </mat-card>
-    </mat-tab>
+    <mat-tab-group class='tabs_services'>
+      <mat-tab label='Courses'>
+        <mat-card class='form_card'>
+          <app-course-form></app-course-form>
+        </mat-card>
+      </mat-tab>
 
-    <mat-tab label='Set Department Details'>
-      <mat-card>
-        <span>Set Department Form</span>
-      </mat-card>
-    </mat-tab>
+      <mat-tab label='Events'>
+        <mat-card class='form_card'>
+          <app-event-form></app-event-form>
+        </mat-card>
+      </mat-tab>
 
-    <mat-tab label='Files'>
-      <mat-card>
-        <span>Upload File Form</span>
-      </mat-card>
-    </mat-tab>
+      <mat-tab label='Notifications'>
+        <mat-card class='form_card'>
+          <app-notification-form></app-notification-form>
+        </mat-card>
+      </mat-tab>
 
-    <mat-tab label='Events'> <!--Type; course: general, c1, c1; message, Date -->
-      <mat-card>
-        <span>Events Form</span>
-      </mat-card>
-    </mat-tab>
-  </mat-tab-group>
+      <mat-tab label='Students'>
+        <mat-card class='form_card'>
+          <form class='form_style'>
+            Approve Students Form
+          </form>
+        </mat-card>
+      </mat-tab>
+
+      <mat-tab label='Set Department Details'>
+        <mat-card>
+          <span>Set Department Form</span>
+        </mat-card>
+      </mat-tab>
+
+      <mat-tab label='Files'>
+        <mat-card>
+          <span>Upload File Form</span>
+        </mat-card>
+      </mat-tab>
+    </mat-tab-group>
+  </div>
 
   <!--<mat-checkbox #cb_start
     [value] = "Start"

@@ -1,0 +1,40 @@
+<form #eventForm='ngForm' class='form_style'>
+  <mat-form-field>
+    <input matInput type='number' placeholder='Event ID' [(ngModel)]='event.id' name='id' required>
+  </mat-form-field>
+
+  <br>
+
+  <mat-form-field>
+    <input matInput type='text' placeholder='Event the event name' [(ngModel)]='event.name' name='name' required>
+  </mat-form-field>
+
+  <br>
+
+  <mat-form-field>
+    <input matInput type='date' [matDatepicker]='dpicker' placeholder='Choose a date' [(ngModel)]='event.dateTime' name='dateTime' required>
+    <mat-datepicker #dpicker></mat-datepicker>
+  </mat-form-field>
+
+  <br>
+
+  <mat-form-field>
+    <input matInput type='text' placeholder='Location' [(ngModel)]='event.location' name='location' required>
+  </mat-form-field>
+
+  <br>
+
+  <mat-form-field>
+    <input matInput type='text' placeholder='Hosted By' [(ngModel)]='event.hostedBy' name='hostedBy' required>
+  </mat-form-field>
+
+  <br>
+
+  <mat-form-field>
+    <textarea matInput type='text' placeholder='Event Description' [(ngModel)]='event.description' name='description'></textarea>
+  </mat-form-field>
+
+  <br><br>
+
+  <button mat-button type='submit' (click)='submitEvent()'>Submit</button>
+</form>
