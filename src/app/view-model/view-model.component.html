@@ -1,0 +1,73 @@
+<mat-accordion>
+  <mat-expansion-panel [expanded]='step === 0' hideToggle='true'>
+    <mat-expansion-panel-header>
+      <mat-panel-title>View Students</mat-panel-title>
+      <mat-panel-description>Expand</mat-panel-description>
+    </mat-expansion-panel-header>
+
+    <app-view-student></app-view-student>
+  </mat-expansion-panel>
+
+  <mat-expansion-panel [expanded]='step === 1' hideToggle='true'>
+    <mat-expansion-panel-header>
+      <mat-panel-title>View Courses</mat-panel-title>
+      <mat-panel-description>Expand</mat-panel-description>
+    </mat-expansion-panel-header>
+
+    <app-view-course></app-view-course>
+  </mat-expansion-panel>
+
+  <mat-expansion-panel [expanded]='step === 2' hideToggle='true'>
+    <mat-expansion-panel-header>
+      <mat-panel-title>View Resources</mat-panel-title>
+      <mat-panel-description>Expand</mat-panel-description>
+    </mat-expansion-panel-header>
+
+    <app-view-resource></app-view-resource>
+  </mat-expansion-panel>
+
+  <mat-expansion-panel [expanded]='step === 3' hideToggle='true'>
+    <mat-expansion-panel-header>
+      <mat-panel-title>View Notifications</mat-panel-title>
+      <mat-panel-description>Expand</mat-panel-description>
+    </mat-expansion-panel-header>
+
+    <app-view-notification></app-view-notification>
+  </mat-expansion-panel>
+
+  <mat-expansion-panel [expanded]='step === 4' hideToggle='true'>
+    <mat-expansion-panel-header>
+      <mat-panel-title>View Events</mat-panel-title>
+      <mat-panel-description>Expand</mat-panel-description>
+    </mat-expansion-panel-header>
+
+    <app-view-event></app-view-event>
+  </mat-expansion-panel>
+
+  <mat-expansion-panel [expanded]='step === 5' hideToggle='true'>
+    <mat-expansion-panel-header>
+      <mat-panel-title>View Lecturers</mat-panel-title>
+      <mat-panel-description>Expand</mat-panel-description>
+    </mat-expansion-panel-header>
+
+    <app-view-lecturer></app-view-lecturer>
+  </mat-expansion-panel>
+
+  <mat-expansion-panel [expanded]='step === 6' hideToggle='true'>
+    <mat-expansion-panel-header>
+      <mat-panel-title>View Tutors</mat-panel-title>
+      <mat-panel-description>Expand</mat-panel-description>
+    </mat-expansion-panel-header>
+
+    <app-view-tutor></app-view-tutor>
+  </mat-expansion-panel>
+
+  <mat-expansion-panel [expanded]='step === 7' hideToggle='true'>
+    <mat-expansion-panel-header>
+      <mat-panel-title>View Administrators</mat-panel-title>
+      <mat-panel-description>Expand</mat-panel-description>
+    </mat-expansion-panel-header>
+
+    <app-view-admin></app-view-admin>
+  </mat-expansion-panel>
+</mat-accordion>

@@ -5,15 +5,10 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { BaseComponent } from './base/base.component';
 
-/* Import Form Functionality */
-import { FormsModule } from '@angular/forms';
-
 /* Firebase Imports */
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule, AngularFireDatabase, AngularFireObject, AngularFireList } from 'angularfire2/database';
 import { AngularFireAuthModule } from 'angularfire2/auth';
-
-/* Define Database Imports */
 export const firebaseConfig = {
   apiKey: 'AIzaSyA90GPBnK_AhvJ2yG9OLjmH3e3CeySSxL0',
   authDomain: 'chem-admin-app.firebaseapp.com',
@@ -22,28 +17,6 @@ export const firebaseConfig = {
   storageBucket: 'chem-admin-app.appspot.com',
   messagingSenderId: '695472243722'
 };
-
-/* Import Custom Authorization Service */
-import { AuthService } from './auth.service';
-
-/* Component Imports */
-import { CourseFormComponent } from './course-form/course-form.component';
-import { CourseComponent } from './course/course.component';
-import { LecturerComponent } from './lecturer/lecturer.component';
-import { ResourceComponent } from './resource/resource.component';
-import { EventComponent } from './event/event.component';
-import { TutorComponent } from './tutor/tutor.component';
-import { AdminComponent } from './admin/admin.component';
-import { LoginFormComponent } from './login-form/login-form.component';
-import { CreateFormComponent } from './create-form/create-form.component';
-import { ResourceFormComponent } from './resource-form/resource-form.component';
-import { TutorFormComponent } from './tutor-form/tutor-form.component';
-import { UserComponent } from './user/user.component';
-import { UserFormComponent } from './user-form/user-form.component';
-import { NotificationComponent } from './notification/notification.component';
-import { EventFormComponent } from './event-form/event-form.component';
-import { NotificationFormComponent } from './notification-form/notification-form.component';
-
 
 /* Angular Material Imports */
 import {
@@ -69,26 +42,59 @@ import {
   MatAutocompleteModule
 } from '@angular/material';
 
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~ CUSTOM-COMPONENT IMPORTS ~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+/* FORMS */
+import { FormAdminComponent } from './form-admin/form-admin.component';
+import { FormCourseComponent } from './form-course/form-course.component';
+import { FormLecturerComponent } from './form-lecturer/form-lecturer.component';
+import { FormEventComponent } from './form-event/form-event.component';
+import { FormResourceComponent } from './form-resource/form-resource.component';
+import { FormStudentComponent } from './form-student/form-student.component';
+import { FormTutorComponent } from './form-tutor/form-tutor.component';
+import { FormLoginComponent } from './form-login/form-login.component';
+import { FormNotificationComponent } from './form-notification/form-notification.component';
+import { FormUserComponent } from './form-user/form-user.component';
+import { ViewAdminComponent } from './view-admin/view-admin.component';
+import { ViewCourseComponent } from './view-course/view-course.component';
+import { ViewEventComponent } from './view-event/view-event.component';
+import { ViewLecturerComponent } from './view-lecturer/view-lecturer.component';
+import { ViewNotificationComponent } from './view-notification/view-notification.component';
+import { ViewResourceComponent } from './view-resource/view-resource.component';
+import { ViewStudentComponent } from './view-student/view-student.component';
+import { ViewTutorComponent } from './view-tutor/view-tutor.component';
+import { FormDepdetailsComponent } from './form-depdetails/form-depdetails.component';
+import { ViewModelComponent } from './view-model/view-model.component';
+import { FormsModule } from '@angular/forms';
+
+/* SERVICES */
+import { AuthService } from './auth.service';
+import { PushpullService } from './pushpull.service';
+
 @NgModule({
   declarations: [
     AppComponent,
     BaseComponent,
-    CourseFormComponent,
-    CourseComponent,
-    LecturerComponent,
-    ResourceComponent,
-    EventComponent,
-    TutorComponent,
-    AdminComponent,
-    LoginFormComponent,
-    CreateFormComponent,
-    ResourceFormComponent,
-    TutorFormComponent,
-    UserComponent,
-    UserFormComponent,
-    NotificationComponent,
-    EventFormComponent,
-    NotificationFormComponent
+    FormAdminComponent,
+    FormCourseComponent,
+    FormLecturerComponent,
+    FormEventComponent,
+    FormResourceComponent,
+    FormStudentComponent,
+    FormTutorComponent,
+    FormLoginComponent,
+    FormNotificationComponent,
+    FormUserComponent,
+    ViewAdminComponent,
+    ViewCourseComponent,
+    ViewEventComponent,
+    ViewLecturerComponent,
+    ViewNotificationComponent,
+    ViewResourceComponent,
+    ViewStudentComponent,
+    ViewTutorComponent,
+    FormDepdetailsComponent,
+    ViewModelComponent
   ],
   imports: [
     FormsModule,
@@ -118,7 +124,7 @@ import {
     AngularFireDatabaseModule,
     AngularFireAuthModule
   ],
-  providers: [AuthService],
+  providers: [AuthService, PushpullService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

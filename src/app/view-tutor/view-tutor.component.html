@@ -1,0 +1,8 @@
+<ul>
+    <li *ngFor='let tutor of tutorList$ | async'>
+        {{ tutor.about }} -------
+        {{ tutor.name}} -------
+        {{ tutor.qualification }} -------
+        {{ tutor.title }} -------
+    </li>
+  </ul>

@@ -1,0 +1,79 @@
+
+<form #courseForm='ngForm' class='form_style' (ngSubmit)='courseSubmit(courseForm)'>
+  <mat-form-field>
+    <input matInput #field_name class='form-control' placeholder="Course Name" [(ngModel)]='course.name' name='name' required>
+  </mat-form-field>
+
+  <br>
+
+  <mat-form-field>
+    <span matPrefix>CHEM &nbsp;</span>
+    <input matInput #field_code class='form-control' placeholder="Course Code" [(ngModel)]='course.code' name='code' required>
+  </mat-form-field>
+
+  <br>
+
+  <mat-form-field>
+    <mat-select class='form-control' placeholder="Year" [(ngModel)]='course.year' name='year'>
+      <mat-option ng-value='year' *ngFor='let year of years' [value]="year"> {{ year }} </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <br>
+
+  <mat-form-field>
+    <mat-select class='form-control' placeholder="Credits" [(ngModel)]='course.credits' name='credits' required>
+      <mat-option *ngFor='let credit of credits' [value]="credit"> {{ credit }} </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <br>
+
+  <mat-form-field>
+    <mat-select class='form-control' placeholder="Lecturer" [(ngModel)]='course.lecturer' name='lecturer' required>
+      <mat-option *ngFor='let lecturer of lecturers' [value]="lecturer"> {{ lecturer }} </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <br>
+
+  <mat-form-field>
+    <mat-select class='form-control' placeholder="Tutor Key" [(ngModel)]='course.tutor' name='tutor' required>
+      <mat-option *ngFor='let tutor of tutors' [value]="tutor"> {{ tutor }} </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <br>
+
+  <mat-form-field>
+    <mat-select class='form-control' placeholder="Department" [(ngModel)]='course.department' name='department' required>
+      <mat-option *ngFor='let department of departments' [value]="department"> {{ department }} </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <br>
+
+  <mat-form-field>
+    <textarea matInput #field_summary class='form-control' placeholder='Enter a summary of the course' [(ngModel)]='course.summary' name='summary'></textarea>
+  </mat-form-field>
+
+  <br>
+
+  <mat-form-field>
+    <textarea matInput #field_prerequisite class='form-control' placeholder='Enter the prerequisites for the course' [(ngModel)]='course.prerequisite' name='prerequisite'></textarea>
+  </mat-form-field>
+
+  <br>
+
+  <mat-form-field>
+    <mat-select class='form-control' placeholder="Degree" [(ngModel)]='course.degree' name='degree' required>
+      <mat-option *ngFor='let degree of degrees' [value]="degree"> {{ degree }} </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <br>
+  <br>
+
+  <button mat-button type='submit' [disabled]="!courseForm.form.valid">Submit</button>
+  <button mat-button type="button" class="btn btn-default" (click)="courseForm.reset()">Reset</button>
+</form>

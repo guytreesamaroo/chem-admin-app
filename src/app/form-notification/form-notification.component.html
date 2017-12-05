@@ -1,0 +1,24 @@
+<form #notificationForm='ngForm' class='form_style' (submit)='submitNotif(notificationForm)'>
+  <mat-form-field>
+    <input matInput type='text' class='form-control' placeholder='Name' [(ngModel)]='notif.name' name='name' required>
+  </mat-form-field>
+
+  <br>
+
+  <mat-form-field>
+    <input matInput type='text' class='form-control' [matDatepicker]='dpicker' placeholder='Date' [(ngModel)]='notif.date' name='date' required>
+    <mat-datepicker #dpicker></mat-datepicker>
+  </mat-form-field>
+
+  <br>
+
+  <mat-form-field>
+    <textarea matInput type='text' class='form-control' placeholder='Description' [(ngModel)]='notif.description' name='description' required></textarea>
+  </mat-form-field>
+
+  <br>
+  <br>
+
+  <button mat-button type='submit' [disabled]="!notificationForm.form.valid" (click)="notificationForm.reset()">Submit</button>
+  <button mat-button type="button" class="btn btn-default" (click)="notificationForm.reset()">Reset</button>
+</form>

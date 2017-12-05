@@ -8,7 +8,7 @@
 </head>
 <body>
   <div *ngIf='!(authService.user | async)' id='form_login'>
-    <app-login-form></app-login-form>
+    <app-form-login></app-form-login>
   </div>
 
   <div *ngIf='authService.user | async'>
@@ -35,52 +35,39 @@
     </mat-toolbar>
 
     <mat-tab-group class='tabs_services'>
+      <mat-tab label='View'>
+        <app-view-model></app-view-model>
+      </mat-tab>
+
       <mat-tab label='Courses'>
         <mat-card class='form_card'>
-          <app-course-form></app-course-form>
+          <app-form-course></app-form-course>
         </mat-card>
       </mat-tab>
 
       <mat-tab label='Events'>
         <mat-card class='form_card'>
-          <app-event-form></app-event-form>
+          <app-form-event></app-form-event>
         </mat-card>
       </mat-tab>
 
-      <mat-tab label='Notifications'>
+      <mat-tab label='Resources'>
         <mat-card class='form_card'>
-          <app-notification-form></app-notification-form>
+          <app-form-resource></app-form-resource>
         </mat-card>
       </mat-tab>
 
-      <mat-tab label='Students'>
+      <mat-tab label='Users'>
+          <app-form-user></app-form-user>
+      </mat-tab>
+
+      <mat-tab label='Department Detail'>
         <mat-card class='form_card'>
-          <form class='form_style'>
-            Approve Students Form
-          </form>
-        </mat-card>
-      </mat-tab>
-
-      <mat-tab label='Set Department Details'>
-        <mat-card>
-          <span>Set Department Form</span>
-        </mat-card>
-      </mat-tab>
-
-      <mat-tab label='Files'>
-        <mat-card>
-          <span>Upload File Form</span>
+          <app-form-depdetails></app-form-depdetails>
         </mat-card>
       </mat-tab>
     </mat-tab-group>
   </div>
 
-  <!--<mat-checkbox #cb_start
-    [value] = "Start"
-    [checked] = "isChecked">
-    Subscribe to newsletter
-  </mat-checkbox>
-
-  <div *ngIf="cb_start.checked == true">Some details...</div>-->
 </body>
 </html>

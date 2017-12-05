@@ -1,0 +1,32 @@
+<form #tutorForm='ngForm' class='form_style' (ngsubmit)='tutorSubmit(tutorForm)'>
+
+  <mat-form-field>
+    <input matInput #field_about class='form-control' placeholder="about" [(ngModel)]='tutor.about' name='about' required>
+  </mat-form-field>
+
+  <br>
+
+  <mat-form-field>
+    <input matInput #field_name class='form-control' placeholder="name" [(ngModel)]='tutor.name' name='name' required>
+  </mat-form-field>
+
+  <br>
+
+  <mat-form-field>
+    <input matInput #field_qualifications class='form-control' placeholder="qualifications" [(ngModel)]='tutor.qualifications' name='qualifications' required>
+  </mat-form-field>
+
+  <br>
+
+  <mat-form-field>
+    <input matInput #field_firstname class='form-control' placeholder="title" [(ngModel)]='tutor.title' name='title' required>
+  </mat-form-field>
+
+  <br>
+  <br>
+
+  <button mat-button type='submit' class="btn btn-success" [disabled]="!tutorForm.form.valid">Submit</button>
+  <button mat-button type="button" class="btn btn-default" (click)="tutorForm.reset()">New tutor</button>
+</form>
+
+{{diagnostic}}

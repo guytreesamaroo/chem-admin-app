@@ -1,0 +1,44 @@
+<form #lecturerForm='ngForm' class='form_style' (ngsubmit)='lecturerSubmit(lecturerForm)'>
+
+  <mat-form-field>
+    <input matInput #field_username class='form-control' placeholder="Username" [(ngModel)]='lecturer.username' name='username' required>
+  </mat-form-field>
+
+  <br>
+
+  <mat-form-field>
+    <input matInput #field_firstname class='form-control' placeholder="Firstname" [(ngModel)]='lecturer.firstname' name='firstname' required>
+  </mat-form-field>
+
+  <br>
+
+  <mat-form-field>
+    <input matInput #field_lastname class='form-control' placeholder="Lastname" [(ngModel)]='lecturer.lastname' name='lastname' required>
+  </mat-form-field>
+
+  <br>
+
+  <br>
+
+  <mat-form-field>
+    <input matInput #field_password class='form-control' placeholder="Password" [(ngModel)]='lecturer.password' name='password' required>
+  </mat-form-field>
+
+  <br>
+
+  <mat-form-field>
+    <input matInput #field_email class='form-control' placeholder="Email" [(ngModel)]='lecturer.email' name='email' required>
+  </mat-form-field>
+
+  <br>
+
+  <mat-form-field>
+      <input matInput #field_department class='form-control' placeholder="department" [(ngModel)]='lecturer.department' name='department' required>
+  </mat-form-field>
+
+  <br>
+  <br>
+
+  <button mat-button type='submit' class="btn btn-success" [disabled]="!lecturerForm.form.valid">Submit</button>
+  <button mat-button type="button" class="btn btn-default" (click)="lecturerForm.reset()">New lecturer</button>
+</form>

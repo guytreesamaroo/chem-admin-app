@@ -1,0 +1,51 @@
+<form #adminForm='ngForm' class='form_style' (ngsubmit)='adminSubmit(adminForm)'>
+
+  <mat-form-field>
+    <input matInput #field_username class='form-control' placeholder="username" [(ngModel)]='admin.username' name='username' required>
+  </mat-form-field>
+
+  <br>
+
+  <mat-form-field>
+    <input matInput #field_firstname class='form-control' placeholder="Firstname" [(ngModel)]='admin.firstname' name='firstname' required>
+  </mat-form-field>
+
+  <br>
+
+  <mat-form-field>
+    <input matInput #field_lastname class='form-control' placeholder="Lastname" [(ngModel)]='admin.lastname' name='lastname' required>
+  </mat-form-field>
+
+  <br>
+
+  <br>
+
+  <mat-form-field>
+    <input matInput #field_password class='form-control' placeholder="Password" [(ngModel)]='password' name='password' required>
+  </mat-form-field>
+
+  <br>
+
+  <mat-form-field>
+    <input matInput #field_email class='form-control' placeholder="Email" [(ngModel)]='email' name='email' required>
+  </mat-form-field>
+
+  <br>
+
+  <mat-form-field>
+    <input matInput #field_department class='form-control' placeholder="department" [(ngModel)]='department' name='department' required>
+  </mat-form-field>
+
+  <br>
+
+  <!--mat-form-field>
+    <mat-select placeholder="Department" class='form-control' [(ngModel)]='admin.department' name='department' required>
+      <mat-option *ngFor='let department of departments' [value]="department"> {{ department }} </mat-option>
+    </mat-select>
+  </mat-form-field-->
+
+  <br><br>
+
+  <button mat-button type='submit' class="btn btn-success" [disabled]="!adminForm.form.valid">Submit</button>
+  <button mat-button type="button" class="btn btn-default" (click)="adminForm.reset()">Reset</button>
+</form>

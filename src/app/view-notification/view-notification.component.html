@@ -1,0 +1,7 @@
+<ul>
+  <li *ngFor='let notif of notifList$ | async'>
+      {{ notif.title }} -------
+      {{ notif.dateCreated }} -------
+      {{ notif.description }}
+  </li>
+</ul>

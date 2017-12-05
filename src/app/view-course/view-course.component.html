@@ -1,0 +1,77 @@
+<!--<div>
+  <mat-table #table [dataSource]="dataSource">
+    <ng-container matColumnDef="code">
+      <mat-header-cell *matHeaderCellDef> Code </mat-header-cell>
+      <mat-cell *matCellDef="let course;"> {{course.code}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="name">
+      <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
+      <mat-cell *matCellDef="let course;"> {{course.name}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="year">
+      <mat-header-cell *matHeaderCellDef> Year </mat-header-cell>
+      <mat-cell *matCellDef="let course;"> {{course.year}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="credits">
+      <mat-header-cell *matHeaderCellDef> Credits </mat-header-cell>
+      <mat-cell *matCellDef="let course;"> {{course.credits}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="semester">
+      <mat-header-cell *matHeaderCellDef> Semester </mat-header-cell>
+      <mat-cell *matCellDef="let course;"> {{course.semester}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="faculty">
+      <mat-header-cell *matHeaderCellDef> Faculty </mat-header-cell>
+      <mat-cell *matCellDef="let course;"> {{course.faculty}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="lecturer">
+      <mat-header-cell *matHeaderCellDef> Lecturer </mat-header-cell>
+      <mat-cell *matCellDef="let course;"> {{course.lecturer}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="officeHours">
+      <mat-header-cell *matHeaderCellDef> OfficeHours </mat-header-cell>
+      <mat-cell *matCellDef="let course;"> {{course.officeHours}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="officeLocation">
+      <mat-header-cell *matHeaderCellDef> OfficeLocation </mat-header-cell>
+      <mat-cell *matCellDef="let course;"> {{course.officeLocation}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="department">
+      <mat-header-cell *matHeaderCellDef> Department </mat-header-cell>
+      <mat-cell *matCellDef="let course;"> {{course.department}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="description">
+      <mat-header-cell *matHeaderCellDef> Description </mat-header-cell>
+      <mat-cell *matCellDef="let course;"> {{course.description}} </mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+  </mat-table>
+</div>
+-->
+
+<ul>
+  <li *ngFor='let course of courseList$ | async'>
+      {{ course.code }} -------
+      {{ course.name }} -------
+      {{ course.year }} -------
+      {{ course.degree }} -------
+      {{ course.credits }} -------
+      {{ course.lecturer }} -------
+      {{ course.department }} -------
+      {{ course.summary }} -------
+      {{ course.tutor }} -------
+      {{ course.prerequisite }}
+  </li>
+</ul>

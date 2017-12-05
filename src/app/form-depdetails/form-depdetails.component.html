@@ -1,0 +1,8 @@
+<form #depdetailsForm='ngForm' class='form_style' (submit)='submitDetails(depdetailsForm)'>
+  <mat-form-field>
+    <textarea matInput class='form-control' type='text' placeholder='Enter department details here' [(ngModel)]='details' name='details' required></textarea>
+  </mat-form-field>
+
+  <button mat-button type='submit' [disabled]="!depdetailsForm.form.valid">Submit</button>
+  <button mat-button type="button" class="btn btn-default" (click)="depdetailsForm.reset()">Reset</button>
+</form>

@@ -1,0 +1,45 @@
+<mat-accordion>
+  <mat-expansion-panel [expanded]='step === 0'(opened)='setStep(0)' hideToggle='true'>
+    <mat-expansion-panel-header>
+      <mat-panel-title>Add Student</mat-panel-title>
+      <mat-panel-description>Click here to add a student...</mat-panel-description>
+    </mat-expansion-panel-header>
+
+    <mat-card class='form_card'>
+      <app-form-student></app-form-student>
+    </mat-card>
+  </mat-expansion-panel>
+
+  <mat-expansion-panel [expanded]='step === 1' (opened)='setStep(1)' hideToggle='true'>
+    <mat-expansion-panel-header>
+      <mat-panel-title>Add Lecturer</mat-panel-title>
+      <mat-panel-description>Click here to add a lecturer...</mat-panel-description>
+    </mat-expansion-panel-header>
+
+    <mat-card class='form_card'>
+      <app-form-lecturer></app-form-lecturer>
+    </mat-card>
+  </mat-expansion-panel>
+
+  <mat-expansion-panel [expanded]='step === 2' (opened)='setStep(2)' hideToggle='true'>
+    <mat-expansion-panel-header>
+      <mat-panel-title>Add Tutor</mat-panel-title>
+      <mat-panel-description>Click here to add a tutor...</mat-panel-description>
+    </mat-expansion-panel-header>
+
+    <mat-card class='form_card'>
+      <app-form-tutor></app-form-tutor>
+    </mat-card>
+  </mat-expansion-panel>
+
+  <mat-expansion-panel [expanded]='step === 3' (opened)='setStep(3)' hideToggle='true'>
+    <mat-expansion-panel-header>
+      <mat-panel-title>Add Administrator</mat-panel-title>
+      <mat-panel-description>Click here to add an administrator...</mat-panel-description>
+    </mat-expansion-panel-header>
+
+    <mat-card class='form_card'>
+      <app-form-admin></app-form-admin>
+    </mat-card>
+  </mat-expansion-panel>
+</mat-accordion>

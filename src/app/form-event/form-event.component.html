@@ -1,0 +1,54 @@
+<form #eventForm='ngForm' class='form_style' (submit)='submitEvent(eventForm)'>
+
+  <mat-form-field>
+    <input matInput type='text' class='form-control' placeholder='title' [(ngModel)]='event.title' name='title' required>
+  </mat-form-field>
+
+  <br>
+
+  <mat-form-field>
+    <input matInput type='text' class='form-control' placeholder='notes' [(ngModel)]='event.notes' name='notes' required>
+  </mat-form-field>
+
+  <br>
+
+  <mat-form-field>
+    <input matInput type='text' class='form-control' placeholder='objectid' [(ngModel)]='event.objectid' name='objectid' required>
+  </mat-form-field>
+
+  <br>
+
+  <mat-form-field>
+    <input matInput type='text' class='form-control' placeholder='allDay' [(ngModel)]='event.allDay' name='allDay' required>
+  </mat-form-field>
+
+  <br>
+
+  <mat-form-field>
+    <input matInput type='date' class='form-control' [matDatepicker]='dpicker1' placeholder='startTime' [(ngModel)]='event.startTime' name='startTime'
+      required>
+    <mat-datepicker #dpicker1></mat-datepicker>
+  </mat-form-field>
+
+  <br>
+
+  <mat-form-field>
+    <input matInput type='date' class='form-control' [matDatepicker]='dpicker2' placeholder='endTime' [(ngModel)]='event.endTime' name='endTime'
+      required>
+    <mat-datepicker #dpicker2></mat-datepicker>
+  </mat-form-field>
+
+
+  <br>
+
+  <mat-form-field>
+    <input matInput type='text' class='form-control' placeholder='Location' [(ngModel)]='event.location' name='location' required>
+  </mat-form-field>
+
+
+  <br>
+  <br>
+
+  <button mat-button type='submit' [disabled]="!eventForm.form.valid">Submit</button>
+  <button mat-button type="button" class="btn btn-default" (click)="eventForm.reset()">Reset</button>
+</form>

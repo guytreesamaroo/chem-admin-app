@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Login</title>
+</head>
+
+<body>
+  <mat-card class='form_card'>
+    <mat-card-header>
+      <mat-card-title>
+        <h1>SR Chemistry Web Application</h1>
+      </mat-card-title>
+
+      <mat-card-subtitle>
+        Content Management Interface
+      </mat-card-subtitle>
+    </mat-card-header>
+
+    <br>
+
+    <form class='form_style'>
+      <mat-form-field>
+        <input matInput type='text' placeholder='Email Address' [(ngModel)]='email' name='email' required>
+      </mat-form-field>
+
+      <br>
+
+      <mat-form-field>
+        <input matInput type='password' placeholder='Password' [(ngModel)]='password' name='password' required>
+      </mat-form-field>
+
+      <br>
+      <br>
+
+      <button mat-button (click)='login()'>Login</button>
+    </form>
+  </mat-card>
+</body>
+
+</html>

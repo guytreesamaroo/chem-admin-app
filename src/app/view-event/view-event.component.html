@@ -1,0 +1,12 @@
+<ul>
+    <li *ngFor='let event of eventList$ | async'>
+        {{ event.id }} -------
+        {{ event.title }} -------
+        {{ event.notes }} -------
+        {{ event.objectId }} -------
+        {{ event.allDay }} -------
+        {{ event.startTime }} -------
+        {{ event.endTime }} -------
+        {{ event.location }}
+    </li>
+  </ul>

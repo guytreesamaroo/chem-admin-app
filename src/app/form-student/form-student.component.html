@@ -1,0 +1,55 @@
+<form #studentForm='ngForm' class='form_style' (ngsubmit)='studentSubmit(studentForm)'>
+
+  <mat-form-field>
+    <input matInput #field_id placeholder="id" class='form-control' [(ngModel)]='student.id' name='id' required>
+  </mat-form-field>
+
+  <br>
+
+  <mat-form-field>
+    <input matInput #field_firstname class='form-control' placeholder="firstname" [(ngModel)]='student.firstname' name='firstname' required>
+  </mat-form-field>
+
+  <br>
+
+  <mat-form-field>
+    <input matInput #field_lastname class='form-control' placeholder="lastname" [(ngModel)]='student.lastname' name='lastname' required>
+  </mat-form-field>
+
+  <br>
+
+  <mat-form-field>
+    <input matInput #field_password class='form-control' placeholder="password" [(ngModel)]='password' name='password' required>
+  </mat-form-field>
+
+  <br>
+
+  <mat-form-field>
+    <input matInput #field_email class='form-control' placeholder="email" [(ngModel)]='email' name='email' required>
+  </mat-form-field>
+
+  <br>
+    <mat-form-field>
+      <input matInput #field_email class='form-control' placeholder="department" [(ngModel)]='department' name='email' required>
+    </mat-form-field>
+  <br>
+
+  <mat-form-field>
+    <mat-select placeholder="status" class='form-control' [(ngModel)]='student.status' name='status' required>
+      <mat-option *ngFor='let status of statuses' [value]="status"> {{ status }} </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <br>
+
+  <mat-form-field>
+    <input matInput #field_Degree class='form-control' placeholder="degree" [(ngModel)]='student.degree' name='degree' required>
+  </mat-form-field>
+
+  <br>
+  <br>
+
+  <button mat-button type='submit' class="btn btn-success" [disabled]="!studentForm.form.valid">Submit</button>
+  <button mat-button type="button" class="btn btn-default" (click)="studentForm.reset()">New student</button>
+</form>
+

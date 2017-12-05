@@ -1,0 +1,6 @@
+<ul>
+  <li *ngFor='let resource of resourceList$ | async'>
+      {{ resource.name }} -------
+      {{ resource.description }}
+  </li>
+</ul>

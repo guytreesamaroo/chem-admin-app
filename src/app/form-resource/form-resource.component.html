@@ -1,0 +1,29 @@
+<form #resourceForm='ngForm' class='form_style' (ngsubmit)='resourceSubmit(resourceForm)'>
+
+  <mat-form-field>
+    <input matInput #field_name class='form-control' placeholder="Name" [(ngModel)]='resource.name' name='name' required>
+  </mat-form-field>
+
+  <br>
+
+  <mat-form-field>
+    <input matInput #field_description class='form-control' placeholder="Description" [(ngModel)]='resource.description' name='description' required>
+  </mat-form-field>
+
+  <br>
+
+  <div class="btn">
+    <!-- <span>Browse</span> -->
+    <input type="file" class='form-control' [(ngModel)]='resource.file' name='file' required/>
+  </div>
+
+  <div class="file-path-wrapper">
+    <input class="file-path validate" type="text" placeholder="Upload file" />
+  </div>
+
+  <br>
+  <br>
+
+  <button mat-button type='submit' class="btn btn-success" [disabled]="!resourceForm.form.valid" (click)="resourceForm.reset()">Submit</button>
+  <button mat-button type="button" class="btn btn-default" (click)="resourceForm.reset()">Reset</button>
+</form>

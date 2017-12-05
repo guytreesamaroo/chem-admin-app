@@ -1,0 +1,12 @@
+<ul>
+  <li *ngFor='let student of studentList$ | async'>
+      {{ student.id }}
+      {{ student.firstname }}
+      {{ student.lastname }}
+      {{ student.password }}
+      {{ student.email }}
+      {{ student.department }}
+      {{ student.degree }}
+      {{ student.status }}
+  </li>
+</ul>

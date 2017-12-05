@@ -1,0 +1,9 @@
+<ul>
+    <li *ngFor='let lecturer of lecturerList$ | async'>
+        {{ lecturer.username }} -------
+        {{ lecturer.firstname}} -------
+        {{ lecturer.lastname }} -------
+        {{ lecturer.email }} -------
+        {{ lecturer.department }}
+    </li>
+</ul>
